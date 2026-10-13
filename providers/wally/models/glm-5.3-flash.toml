@@ -2,7 +2,6 @@
 # Effort: reasoning_effort = low|high|max
 # Pricing: https://www.runwally.com/pricing
 base_model = "zhipuai/glm-5.3-flash"
-attachment = false
 reasoning_options = [
   { type = "toggle" },
   { type = "effort", values = ["low", "high", "max"] },
@@ -20,4 +19,4 @@ cache_read = 0.02
 context = 1_048_576
 
 [modalities]
-input = ["text"]
+input = ["text", "image"]
