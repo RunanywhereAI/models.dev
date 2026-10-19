@@ -1,6 +1,6 @@
 # Toggle: chat_template_kwargs.enable_thinking = true|false
 # Pricing: https://www.runwally.com/pricing
-base_model = "xiaomi/mimo-v2.6-pro"
+base_model = "xiaomi/mimo-v2.6-flash"
 attachment = false
 structured_output = true
 
@@ -11,9 +11,9 @@ type = "toggle"
 field = "reasoning_content"
 
 [cost]
-input = 0.50
-output = 1.00
-cache_read = 0.01
+input = 0.14
+output = 0.28
+cache_read = 0.0028
 
 [modalities]
 input = ["text"]
