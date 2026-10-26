@@ -1,0 +1,30 @@
+# Effort: reasoning_effort = none|low|medium|high|xhigh|max; thinking is on by default and none turns it off.
+# Images: PNG, JPEG and WebP (GIF is rejected with a 400).
+# Temperature: applied, range 0 to 1.
+# Pricing: https://www.runwally.com/pricing
+# Limits, modalities and reasoning levels: GET https://inference.runanywhere.ai/v1/models
+schema = 2
+base_model = "moonshotai/kimi-k3"
+
+[modalities]
+input = ["text", "image/jpeg", "image/png", "image/webp"]
+output = ["text"]
+
+[capabilities]
+reasoning = { supported = true, effort = ["none", "low", "medium", "high", "xhigh", "max"] }
+structured_output = true
+temperature = true
+cache = { implicit = true }
+
+[limit]
+output = 65_536
+
+[api.chat-completions]
+compatibility = { reasoning_field = "reasoning_content" }
+
+[cost.text.input]
+price = 3
+cache = { read = 0.3 }
+
+[cost.text.output]
+price = 15

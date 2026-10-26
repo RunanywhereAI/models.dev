@@ -1,20 +1,29 @@
-# Toggle: chat_template_kwargs.enable_thinking = true|false
-# Effort: reasoning_effort = low|high|max
+# Effort: reasoning_effort = none|low|medium|high|max (default high); none turns thinking off.
+# Images: PNG, JPEG and WebP (GIF is rejected with a 400).
 # Pricing: https://www.runwally.com/pricing
+# Limits, modalities and reasoning levels: GET https://inference.runanywhere.ai/v1/models
+schema = 2
 base_model = "deepseek/deepseek-v4.1-flash"
-reasoning_options = [
-  { type = "toggle" },
-  { type = "effort", values = ["low", "high", "max"] },
-]
 
-[interleaved]
-field = "reasoning_content"
+[modalities]
+input = ["text", "image/jpeg", "image/png", "image/webp"]
+output = ["text"]
 
-[cost]
-input = 0.20
-output = 0.60
-cache_read = 0.006
+[capabilities]
+reasoning = { supported = true, default = { type = "effort", value = "high" }, effort = ["none", "low", "medium", "high", "max"] }
+structured_output = true
+cache = { implicit = true }
 
 [limit]
 context = 1_048_576
-output = 262_144
+output = 65_536
+
+[api.chat-completions]
+compatibility = { reasoning_field = "reasoning_content" }
+
+[cost.text.input]
+price = 0.3
+cache = { read = 0.006 }
+
+[cost.text.output]
+price = 1.2
