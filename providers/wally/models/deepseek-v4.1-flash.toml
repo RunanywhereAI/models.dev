@@ -1,5 +1,6 @@
 # Effort: reasoning_effort = none|low|high|max (default high); none turns thinking off (minimal maps to low, medium to high).
 # Images: PNG, JPEG and WebP (GIF is rejected with a 400).
+# Cache: automatic; a repeated prompt returns usage.prompt_tokens_details.cached_tokens.
 # Pricing: https://www.runwally.com/pricing
 # Limits and modalities: GET https://inference.runanywhere.ai/v1/models
 schema = 2

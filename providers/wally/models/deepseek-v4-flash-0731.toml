@@ -1,4 +1,5 @@
 # Effort: reasoning_effort = none|low|high|max; thinking is off unless reasoning_effort asks for it (minimal maps to low, medium to high, xhigh to max).
+# Cache: automatic; a repeated prompt returns usage.prompt_tokens_details.cached_tokens.
 # Pricing: https://www.runwally.com/pricing
 # Limits and modalities: GET https://inference.runanywhere.ai/v1/models
 schema = 2
